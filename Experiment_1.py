@@ -753,7 +753,7 @@ EXPERIMENT_CONFIGS: Dict[int, dict] = {
     1: dict(DATA_TYPE="increment",  NORMALIZE_DI_LAGS=True,  TARGET_ABSOLUTE=False, SWAMP_AS_PERCENT=False),
     2: dict(DATA_TYPE="increment",  NORMALIZE_DI_LAGS=False, TARGET_ABSOLUTE=False, SWAMP_AS_PERCENT=False),
     3: dict(DATA_TYPE="sequential", NORMALIZE_DI_LAGS=False, TARGET_ABSOLUTE=False, SWAMP_AS_PERCENT=False),
-    4: dict(DATA_TYPE="increment",  NORMALIZE_DI_LAGS=True,  TARGET_ABSOLUTE=True,  SWAMP_AS_PERCENT=False),
+    4: dict(DATA_TYPE="increment",  NORMALIZE_DI_LAGS=True,  TARGET_ABSOLUTE=True,  SWAMP_AS_PERCENT=False), # Абсолютные смещения
     5: dict(DATA_TYPE="increment",  NORMALIZE_DI_LAGS=True,  TARGET_ABSOLUTE=True,  SWAMP_AS_PERCENT=False),
     6: dict(DATA_TYPE="sequential", NORMALIZE_DI_LAGS=True,  TARGET_ABSOLUTE=True,  SWAMP_AS_PERCENT=False),
     7: dict(DATA_TYPE="sequential", NORMALIZE_DI_LAGS=True,  TARGET_ABSOLUTE=False, SWAMP_AS_PERCENT=True),
@@ -781,7 +781,10 @@ def main(exp_id: int = 1):
     # 1. ЗАГРУЗКА ДАННЫХ
     print("Загрузка данных...")
     dm_sheet = DM_SHEET[cfg.DATA_TYPE]
-    dm_df = load_dm_movings("new_data.xlsx", dm_sheet)
+    if dm_sheet == "ДМ_перемещения последовательно":
+        dm_df = load_dm_movings("Все параметры_12 циклов_new_26.12.xlsx", "ДМ_перемещения последовательно")
+    else:
+        dm_df = load_dm_movings("new_data.xlsx", dm_sheet)
     ts_df = load_closest_ts("Все параметры_12 циклов_new_26.12.xlsx","Ближайшие ТС_new", cfg.MAX_DISTANCE)
     soil_df = load_soil_types("Все параметры_12 циклов_new_26.12.xlsx", "Колонки_new")
     temp_df = load_temperature("Все параметры_12 циклов_new_26.12.xlsx", "Температура_new")
