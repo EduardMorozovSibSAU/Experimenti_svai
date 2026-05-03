@@ -1,0 +1,118 @@
+22:20:15 | ============================================================
+22:20:15 | НАЧАЛО эксперимента #1
+22:20:15 | ============================================================
+22:20:20 | ============================================================
+22:20:20 | НАЧАЛО эксперимента #1
+22:20:20 | ============================================================
+22:26:42 | ============================================================
+22:26:42 | НАЧАЛО эксперимента #5
+22:26:42 | ============================================================
+22:27:38 | ЗАВЕРШЁН эксперимент #1
+22:27:38 | ============================================================
+22:27:38 | НАЧАЛО эксперимента #2
+22:27:38 | ============================================================
+22:27:57 | ЗАВЕРШЁН эксперимент #1
+22:27:57 | ============================================================
+22:27:57 | НАЧАЛО эксперимента #2
+22:27:57 | ============================================================
+22:35:18 | ЗАВЕРШЁН эксперимент #5
+22:35:18 | ============================================================
+22:35:18 | НАЧАЛО эксперимента #6
+22:35:18 | ============================================================
+22:35:19 | ОШИБКА в эксперименте #6: Worksheet named 'ДМ_перемещения последовательно' not found
+Traceback (most recent call last):
+  File "C:\Users\faire\OneDrive\Desktop\Experiment 1\Experiment_1_nikolay.py", line 871, in <module>
+    main(exp_id)
+  File "C:\Users\faire\OneDrive\Desktop\Experiment 1\Experiment_1_nikolay.py", line 784, in main
+    dm_df = load_dm_movings("new_data.xlsx", dm_sheet)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\faire\OneDrive\Desktop\Experiment 1\Experiment_1_nikolay.py", line 161, in load_dm_movings
+    df_new = pd.read_excel(filepath, sheet_name=sheet_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\faire\anaconda3\envs\svai\Lib\site-packages\pandas\io\excel\_base.py", line 508, in read_excel
+    data = io.parse(
+           ^^^^^^^^^
+  File "C:\Users\faire\anaconda3\envs\svai\Lib\site-packages\pandas\io\excel\_base.py", line 1616, in parse
+    return self._reader.parse(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\faire\anaconda3\envs\svai\Lib\site-packages\pandas\io\excel\_base.py", line 773, in parse
+    sheet = self.get_sheet_by_name(asheetname)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\faire\anaconda3\envs\svai\Lib\site-packages\pandas\io\excel\_openpyxl.py", line 582, in get_sheet_by_name
+    self.raise_if_bad_sheet_by_name(name)
+  File "C:\Users\faire\anaconda3\envs\svai\Lib\site-packages\pandas\io\excel\_base.py", line 624, in raise_if_bad_sheet_by_name
+    raise ValueError(f"Worksheet named '{name}' not found")
+ValueError: Worksheet named 'ДМ_перемещения последовательно' not found
+22:35:19 | Продолжаем со следующим экспериментом...
+22:35:56 | ЗАВЕРШЁН эксперимент #2
+22:35:56 | ============================================================
+22:35:56 | НАЧАЛО эксперимента #3
+22:35:56 | ============================================================
+22:35:56 | ОШИБКА в эксперименте #3: Worksheet named 'ДМ_перемещения последовательно' not found
+Traceback (most recent call last):
+  File "c:\Users\faire\OneDrive\Desktop\Experiment 1\Experiment_1_nikolay.py", line 871, in <module>
+    main(exp_id)
+  File "c:\Users\faire\OneDrive\Desktop\Experiment 1\Experiment_1_nikolay.py", line 784, in main
+    dm_df = load_dm_movings("new_data.xlsx", dm_sheet)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\faire\OneDrive\Desktop\Experiment 1\Experiment_1_nikolay.py", line 161, in load_dm_movings
+    df_new = pd.read_excel(filepath, sheet_name=sheet_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\faire\anaconda3\envs\svai\Lib\site-packages\pandas\io\excel\_base.py", line 508, in read_excel
+    data = io.parse(
+           ^^^^^^^^^
+  File "C:\Users\faire\anaconda3\envs\svai\Lib\site-packages\pandas\io\excel\_base.py", line 1616, in parse
+    return self._reader.parse(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\faire\anaconda3\envs\svai\Lib\site-packages\pandas\io\excel\_base.py", line 773, in parse
+    sheet = self.get_sheet_by_name(asheetname)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\faire\anaconda3\envs\svai\Lib\site-packages\pandas\io\excel\_openpyxl.py", line 582, in get_sheet_by_name
+    self.raise_if_bad_sheet_by_name(name)
+  File "C:\Users\faire\anaconda3\envs\svai\Lib\site-packages\pandas\io\excel\_base.py", line 624, in raise_if_bad_sheet_by_name
+    raise ValueError(f"Worksheet named '{name}' not found")
+ValueError: Worksheet named 'ДМ_перемещения последовательно' not found
+22:35:56 | Продолжаем со следующим экспериментом...
+22:35:56 | ============================================================
+22:35:56 | НАЧАЛО эксперимента #4
+22:35:56 | ============================================================
+22:36:19 | ЗАВЕРШЁН эксперимент #2
+22:36:19 | ============================================================
+22:36:19 | НАЧАЛО эксперимента #3
+22:36:19 | ============================================================
+22:36:20 | ОШИБКА в эксперименте #3: Worksheet named 'ДМ_перемещения последовательно' not found
+Traceback (most recent call last):
+  File "c:\Users\faire\OneDrive\Desktop\Experiment 1\Experiment_1_nikolay.py", line 871, in <module>
+    main(exp_id)
+  File "c:\Users\faire\OneDrive\Desktop\Experiment 1\Experiment_1_nikolay.py", line 784, in main
+    dm_df = load_dm_movings("new_data.xlsx", dm_sheet)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\faire\OneDrive\Desktop\Experiment 1\Experiment_1_nikolay.py", line 161, in load_dm_movings
+    df_new = pd.read_excel(filepath, sheet_name=sheet_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\faire\anaconda3\envs\svai\Lib\site-packages\pandas\io\excel\_base.py", line 508, in read_excel
+    data = io.parse(
+           ^^^^^^^^^
+  File "C:\Users\faire\anaconda3\envs\svai\Lib\site-packages\pandas\io\excel\_base.py", line 1616, in parse
+    return self._reader.parse(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\faire\anaconda3\envs\svai\Lib\site-packages\pandas\io\excel\_base.py", line 773, in parse
+    sheet = self.get_sheet_by_name(asheetname)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\faire\anaconda3\envs\svai\Lib\site-packages\pandas\io\excel\_openpyxl.py", line 582, in get_sheet_by_name
+    self.raise_if_bad_sheet_by_name(name)
+  File "C:\Users\faire\anaconda3\envs\svai\Lib\site-packages\pandas\io\excel\_base.py", line 624, in raise_if_bad_sheet_by_name
+    raise ValueError(f"Worksheet named '{name}' not found")
+ValueError: Worksheet named 'ДМ_перемещения последовательно' not found
+22:36:20 | Продолжаем со следующим экспериментом...
+22:36:20 | ============================================================
+22:36:20 | НАЧАЛО эксперимента #4
+22:36:20 | ============================================================
+22:43:10 | ЗАВЕРШЁН эксперимент #4
+22:43:10 | ============================================================
+22:43:10 | НАЧАЛО эксперимента #5
+22:43:10 | ============================================================
+22:43:50 | ЗАВЕРШЁН эксперимент #4
+22:43:50 | ============================================================
+22:43:50 | НАЧАЛО эксперимента #5
+22:43:50 | ============================================================
