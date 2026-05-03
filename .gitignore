@@ -1,9 +1,10 @@
-# Данные
+# Data files
 *.csv
 *.xlsx
 *.xls
+data_experiment_1_scaled.csv
 
-# Модели и результаты
+# Models and results
 Results_experiment*/
 *.pt
 *.pkl
@@ -17,12 +18,13 @@ __pycache__/
 .ipynb_checkpoints/
 *.ipynb
 
-# Логи
+# Logs
 *.log
 
 # IDE
 .vscode/
 .idea/
 
-# Временные файлы
+# Temp
 debug_*.py
+colleague_version.py
