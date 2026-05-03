@@ -37,6 +37,9 @@ class Config:
     QUANTILE_LOW: float = 0.02 # нижняя граница для фильтрации выбросов по квантилям (можно менять для экспериментов)
     QUANTILE_HIGH: float = 0.98 # верхняя граница для фильтрации выбросов по квантилям (можно менять для экспериментов)
     
+    TEMPERATURE_IS_ABSOLUTE: bool = False # флаг для абсолютных значений температур (для 12, 14 экспериментов)
+    DI_IS_ABSOLUTE: bool = False # флаг для абсолютных значений di
+
     # Модель
     INPUT_DIM: int = 33 # ← для 11-14 может быть больше из-за дополнительных temp-фич
     HIDDEN_DIMS: List[int] = field(default_factory=lambda: [32, 128, 64, 64, 32]) # можно менять для экспериментов
@@ -58,7 +61,6 @@ class Config:
     TARGET_ABSOLUTE: bool = False        # True  → предсказывать abs(di)
     SWAMP_AS_PERCENT: bool = False       # True  → заболоченность как процент (0–100), иначе категория 0/1/2
     DATA_TYPE: str = "increment"         # "increment" — приростом, "sequential" — последовательно
-
     # Почвенные кластеры для анализа
     SOIL_STACK: set = frozenset([
         '1111112222222222', '1111113333322222', '1111114442222222',
@@ -197,6 +199,9 @@ def load_dm_movings(filepath: str, sheet_name: str, filter_func: str = None) -> 
     elif filter_func == 'quantile' or filter_func is None:
         final = filter_outliers_by_quantile(final, names_di_columns, cfg.QUANTILE_LOW, cfg.QUANTILE_HIGH)
 
+    if cfg.DI_IS_ABSOLUTE:
+        final[['di', 'di-1', 'di-2', 'di-3']] = final[['di', 'di-1', 'di-2', 'di-3']].apply(abs)
+
     return final
 
 
@@ -240,6 +245,43 @@ def load_soil_types(filepath: str, sheet_name: str = None) -> pd.DataFrame:
     'Вид грунта 10': 'SoilType_10'
 }
     return df.rename(columns=new_columns)
+
+def load_temperature_growth(filepath: str, sheet_name: str = None) -> pd.DataFrame:
+    df_temp_new = pd.read_excel(filepath, sheet_name=sheet_name)
+    df_temp_new.drop(0, inplace=True)
+    df_temp_new.columns = ['Объект', 'Участок', 'TS_num', 'Имя ТС', 'Depth', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII', 'XIII']
+
+    id_cols = ['Объект', 'Участок', 'TS_num', 'Имя ТС', 'Depth']
+
+    df_long = df_temp_new.melt(
+        id_vars=id_cols,
+        var_name='Цикл',
+        value_name='value'
+    )
+
+    df_final = df_long.pivot_table(
+        index=['TS_num', 'Цикл'],
+        columns='Depth',
+        values='value',
+        aggfunc='first'
+    ).reset_index()
+
+    df_final.columns.name = None
+    df_temp_new = df_final.rename(columns=lambda x: f'temp_{int(x)}' if isinstance(x, (int, float)) else x)
+
+    cols = ['temp_6', 'temp_7', 'temp_8', 'temp_9', 'temp_10']
+    low = df_temp_new[cols].quantile(0.02)
+    high = df_temp_new[cols].quantile(0.98)
+    df_temp_new = df_temp_new[
+        (df_temp_new[cols] >= low).all(axis=1) &
+        (df_temp_new[cols] <= high).all(axis=1)
+    ].copy()
+
+    if cfg.TEMPERATURE_IS_ABSOLUTE:
+        df_temp_new[cols] = df_temp_new[cols].apply(abs)
+
+    return df_temp_new
+
 
 def load_temperature(filepath: str, sheet_name: str = None) -> pd.DataFrame:
     """Загружает температурные данные с конвертацией циклов."""
@@ -391,7 +433,7 @@ def scale_all_data(dataframe):
 
     scale_cols = [
         *(names_di_columns if cfg.NORMALIZE_DI_LAGS else []),
-        *snow_presc_temp, *[c for group in temp_cols for c in group], 'Distance']  
+        *snow_presc_temp, *[c for group in temp_cols for c in group], 'Distance']
 
     scaler = StandardScaler()
     dataframe[scale_cols] = scaler.fit_transform(dataframe[scale_cols])  # ← для Exp.2: применить только к части колонок
@@ -736,6 +778,7 @@ def evaluate_on_cycles(
 
 
 
+<<<<<<< HEAD
 # ─────────────────────────────────────────────────────────────────────────────
 # Пресеты экспериментов
 # ─────────────────────────────────────────────────────────────────────────────
@@ -794,7 +837,7 @@ def main(exp_id: int = 1):
     if cfg.SWAMP_AS_PERCENT:
         swamp_df = load_swamp_percent("Заболоченность_процент.xlsx")
     else:
-        swamp_df = load_swamp_status("Заболоченность.csv", exist = True)  
+        swamp_df = load_swamp_status("Заболоченность.csv", exist=True)
 
     # 2. ОБЪЕДИНЕНИЕ
 
@@ -808,15 +851,14 @@ def main(exp_id: int = 1):
     print("Нормализация данных...")
     full_df = scale_all_data(full_df)
 
-    
     print("Обучение модели...")
     
     train_groups = prepare_data(cfg.ROOT / cfg.DATA_FILE, cycles_to_include=["II","III","IV","V","VI","VII","VIII","IX","X"])
 
     train_summary = train_model(
         train_groups, 
-        output_folder=cfg.ROOT / cfg.RESULTS_FOLDER / f"exp_{exp_id}",  # ← отдельная папка на эксперимент
-        soil_filter = cfg.SOIL_STACK
+        output_folder=cfg.ROOT / cfg.RESULTS_FOLDER / f"exp_{exp_id}",
+        soil_filter=cfg.SOIL_STACK
     )
 
     print(train_summary)
@@ -877,5 +919,4 @@ if __name__ == "__main__":
             logging.exception(f"ОШИБКА в эксперименте #{exp_id}: {e}")
             logging.info("Продолжаем со следующим экспериментом...")
         finally:
-            # Сбрасываем cfg к дефолтным значениям перед следующим экспериментом
             globals()['cfg'] = Config()
