@@ -1,0 +1,109 @@
+22:00:18 | ============================================================
+22:00:18 | НАЧАЛО эксперимента #1
+22:00:18 | ============================================================
+22:01:00 | ОШИБКА в эксперименте #1: Found array with 0 sample(s) (shape=(0, 28)) while a minimum of 1 is required by StandardScaler.
+Traceback (most recent call last):
+  File "T:\Pyproject\Ecolog\03.05\Experiment_1.py", line 868, in <module>
+    main(exp_id)
+  File "T:\Pyproject\Ecolog\03.05\Experiment_1.py", line 803, in main
+    full_df = scale_all_data(full_df)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "T:\Pyproject\Ecolog\03.05\Experiment_1.py", line 394, in scale_all_data
+    dataframe[scale_cols] = scaler.fit_transform(dataframe[scale_cols])  # ← для Exp.2: применить только к части колонок
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Nikolay\.conda\envs\torch27\Lib\site-packages\sklearn\utils\_set_output.py", line 316, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Nikolay\.conda\envs\torch27\Lib\site-packages\sklearn\base.py", line 907, in fit_transform
+    return self.fit(X, **fit_params).transform(X)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Nikolay\.conda\envs\torch27\Lib\site-packages\sklearn\preprocessing\_data.py", line 924, in fit
+    return self.partial_fit(X, y, sample_weight)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Nikolay\.conda\envs\torch27\Lib\site-packages\sklearn\base.py", line 1336, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Nikolay\.conda\envs\torch27\Lib\site-packages\sklearn\preprocessing\_data.py", line 961, in partial_fit
+    X = validate_data(
+        ^^^^^^^^^^^^^^
+  File "C:\Users\Nikolay\.conda\envs\torch27\Lib\site-packages\sklearn\utils\validation.py", line 2902, in validate_data
+    out = check_array(X, input_name="X", **check_params)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Nikolay\.conda\envs\torch27\Lib\site-packages\sklearn\utils\validation.py", line 1097, in check_array
+    raise ValueError(
+ValueError: Found array with 0 sample(s) (shape=(0, 28)) while a minimum of 1 is required by StandardScaler.
+22:01:00 | Продолжаем со следующим экспериментом...
+22:01:00 | ============================================================
+22:01:00 | НАЧАЛО эксперимента #2
+22:01:00 | ============================================================
+22:01:44 | ОШИБКА в эксперименте #2: Found array with 0 sample(s) (shape=(0, 25)) while a minimum of 1 is required by StandardScaler.
+Traceback (most recent call last):
+  File "T:\Pyproject\Ecolog\03.05\Experiment_1.py", line 868, in <module>
+    logging.info(f"НАЧАЛО эксперимента #{exp_id}")
+        ^^^^^^^^^^^^
+  File "T:\Pyproject\Ecolog\03.05\Experiment_1.py", line 803, in main
+  File "T:\Pyproject\Ecolog\03.05\Experiment_1.py", line 394, in scale_all_data
+    *snow_presc_temp, *[c for group in temp_cols for c in group], 'Distance']
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Nikolay\.conda\envs\torch27\Lib\site-packages\sklearn\utils\_set_output.py", line 316, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Nikolay\.conda\envs\torch27\Lib\site-packages\sklearn\base.py", line 907, in fit_transform
+    return self.fit(X, **fit_params).transform(X)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Nikolay\.conda\envs\torch27\Lib\site-packages\sklearn\preprocessing\_data.py", line 924, in fit
+    return self.partial_fit(X, y, sample_weight)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Nikolay\.conda\envs\torch27\Lib\site-packages\sklearn\base.py", line 1336, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Nikolay\.conda\envs\torch27\Lib\site-packages\sklearn\preprocessing\_data.py", line 961, in partial_fit
+    X = validate_data(
+        ^^^^^^^^^^^^^^
+  File "C:\Users\Nikolay\.conda\envs\torch27\Lib\site-packages\sklearn\utils\validation.py", line 2902, in validate_data
+    out = check_array(X, input_name="X", **check_params)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Nikolay\.conda\envs\torch27\Lib\site-packages\sklearn\utils\validation.py", line 1097, in check_array
+    raise ValueError(
+ValueError: Found array with 0 sample(s) (shape=(0, 25)) while a minimum of 1 is required by StandardScaler.
+22:01:44 | Продолжаем со следующим экспериментом...
+22:01:44 | ============================================================
+22:01:44 | НАЧАЛО эксперимента #3
+22:01:44 | ============================================================
+22:01:45 | ОШИБКА в эксперименте #3: Worksheet named 'ДМ_перемещения последовательно' not found
+Traceback (most recent call last):
+  File "T:\Pyproject\Ecolog\03.05\Experiment_1.py", line 868, in <module>
+    logging.info(f"НАЧАЛО эксперимента #{exp_id}")
+        ^^^^^^^^^^^^
+  File "T:\Pyproject\Ecolog\03.05\Experiment_1.py", line 781, in main
+    # 1. ЗАГРУЗКА ДАННЫХ
+           ^^^^^^^^^^^^^^
+  File "T:\Pyproject\Ecolog\03.05\Experiment_1.py", line 158, in load_dm_movings
+  File "C:\Users\Nikolay\.conda\envs\torch27\Lib\site-packages\pandas\util\_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Nikolay\.conda\envs\torch27\Lib\site-packages\pandas\util\_decorators.py", line 331, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Nikolay\.conda\envs\torch27\Lib\site-packages\pandas\io\excel\_base.py", line 490, in read_excel
+    data = io.parse(
+           ^^^^^^^^^
+  File "C:\Users\Nikolay\.conda\envs\torch27\Lib\site-packages\pandas\io\excel\_base.py", line 1734, in parse
+    return self._reader.parse(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Nikolay\.conda\envs\torch27\Lib\site-packages\pandas\io\excel\_base.py", line 760, in parse
+    sheet = self.get_sheet_by_name(asheetname)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Nikolay\.conda\envs\torch27\Lib\site-packages\pandas\io\excel\_openpyxl.py", line 577, in get_sheet_by_name
+    self.raise_if_bad_sheet_by_name(name)
+  File "C:\Users\Nikolay\.conda\envs\torch27\Lib\site-packages\pandas\io\excel\_base.py", line 602, in raise_if_bad_sheet_by_name
+    raise ValueError(f"Worksheet named '{name}' not found")
+ValueError: Worksheet named 'ДМ_перемещения последовательно' not found
+22:01:45 | Продолжаем со следующим экспериментом...
+22:08:06 | ============================================================
+22:08:06 | НАЧАЛО эксперимента #1
+22:08:06 | ============================================================
+22:35:48 | ЗАВЕРШЁН эксперимент #1
+22:48:23 | ============================================================
+22:48:23 | НАЧАЛО эксперимента #5
+22:48:23 | ============================================================
