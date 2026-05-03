@@ -627,6 +627,7 @@ def train_model(
             
             # Early stopping (опционально)
             if cfg.EARLY_STOP_PATIENCE and epoch - train_losses.index(min(train_losses)) > cfg.EARLY_STOP_PATIENCE:
+                print(" /// Сработал EarlyStoping!")
                 break
         
         # Plot losses
@@ -689,6 +690,7 @@ def evaluate_on_cycles(
     soil_filter: set = None,
     output_prefix: str = ""
 ) -> pd.DataFrame:
+    
     """Оценивает обученные модели на указанных циклах."""
     summary = []
     
@@ -756,9 +758,9 @@ EXPERIMENT_CONFIGS: Dict[int, dict] = {
     4: dict(DATA_TYPE="increment",  NORMALIZE_DI_LAGS=True,  TARGET_ABSOLUTE=True,  SWAMP_AS_PERCENT=False), # Абсолютные смещения
     5: dict(DATA_TYPE="increment",  NORMALIZE_DI_LAGS=True,  TARGET_ABSOLUTE=True,  SWAMP_AS_PERCENT=False),
     6: dict(DATA_TYPE="sequential", NORMALIZE_DI_LAGS=True,  TARGET_ABSOLUTE=True,  SWAMP_AS_PERCENT=False),
-    7: dict(DATA_TYPE="sequential", NORMALIZE_DI_LAGS=True,  TARGET_ABSOLUTE=False, SWAMP_AS_PERCENT=True),
+    7: dict(DATA_TYPE="sequential", NORMALIZE_DI_LAGS=True,  TARGET_ABSOLUTE=False, SWAMP_AS_PERCENT=True), # Менять размерность сети (т.к. болота не категоримальные => не нужен get_dummies)
     8: dict(DATA_TYPE="sequential", NORMALIZE_DI_LAGS=True,  TARGET_ABSOLUTE=False, SWAMP_AS_PERCENT=False),
-    9: dict(DATA_TYPE="increment",  NORMALIZE_DI_LAGS=False, TARGET_ABSOLUTE=False, SWAMP_AS_PERCENT=True),
+    9: dict(DATA_TYPE="increment",  NORMALIZE_DI_LAGS=False, TARGET_ABSOLUTE=False, SWAMP_AS_PERCENT=True), # Менять размерность сети (т.к. болота не категоримальные => не нужен get_dummies)
 }
 
 
@@ -820,7 +822,7 @@ def main(exp_id: int = 1):
         soil_filter = cfg.SOIL_STACK
     )
 
-    print(train_summary)
+    # print(train_summary)
 
     print("Тестированиие на 11 цикле...")
     test_11 = prepare_data(cfg.ROOT / cfg.DATA_FILE, cycles_to_include=['XI'])
