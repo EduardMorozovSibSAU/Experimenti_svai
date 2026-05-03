@@ -775,10 +775,6 @@ def evaluate_on_cycles(
     return pd.DataFrame(summary).sort_values('Rows', ascending=False)
 
 
-
-
-
-<<<<<<< HEAD
 # ─────────────────────────────────────────────────────────────────────────────
 # Пресеты экспериментов
 # ─────────────────────────────────────────────────────────────────────────────
@@ -788,7 +784,8 @@ def evaluate_on_cycles(
 #                    "sequential" — лист "ДМ_перемещения последовательно"
 # NORMALIZE_DI_LAGS: True  — нормализовать di-1, di-2, di-3
 #                    False — оставить как есть
-# TARGET_ABSOLUTE:   True  — предсказывать abs(di)
+# TARGET_ABSOLUTE:   True  — предсказывать abs(di) как таргет
+# DI_IS_ABSOLUTE:    True  — применить abs() к di-лагам как признакам
 # SWAMP_AS_PERCENT:  True  — заболоченность как процент (файл .xlsx)
 #                    False — категория 0/1/2 (файл .csv)
 
@@ -796,8 +793,8 @@ EXPERIMENT_CONFIGS: Dict[int, dict] = {
     1: dict(DATA_TYPE="increment",  NORMALIZE_DI_LAGS=True,  TARGET_ABSOLUTE=False, SWAMP_AS_PERCENT=False),
     2: dict(DATA_TYPE="increment",  NORMALIZE_DI_LAGS=False, TARGET_ABSOLUTE=False, SWAMP_AS_PERCENT=False),
     3: dict(DATA_TYPE="sequential", NORMALIZE_DI_LAGS=False, TARGET_ABSOLUTE=False, SWAMP_AS_PERCENT=False),
-    4: dict(DATA_TYPE="increment",  NORMALIZE_DI_LAGS=True,  TARGET_ABSOLUTE=True,  SWAMP_AS_PERCENT=False), # Абсолютные смещения
-    5: dict(DATA_TYPE="increment",  NORMALIZE_DI_LAGS=True,  TARGET_ABSOLUTE=True,  SWAMP_AS_PERCENT=False),
+    4: dict(DATA_TYPE="increment",  NORMALIZE_DI_LAGS=True,  TARGET_ABSOLUTE=True,  SWAMP_AS_PERCENT=False, DI_IS_ABSOLUTE=True),   # abs(di) и в признаках, и в таргете
+    5: dict(DATA_TYPE="increment",  NORMALIZE_DI_LAGS=True,  TARGET_ABSOLUTE=True,  SWAMP_AS_PERCENT=False, DI_IS_ABSOLUTE=False),  # abs(di) только в таргете
     6: dict(DATA_TYPE="sequential", NORMALIZE_DI_LAGS=True,  TARGET_ABSOLUTE=True,  SWAMP_AS_PERCENT=False),
     7: dict(DATA_TYPE="sequential", NORMALIZE_DI_LAGS=True,  TARGET_ABSOLUTE=False, SWAMP_AS_PERCENT=True),
     8: dict(DATA_TYPE="sequential", NORMALIZE_DI_LAGS=True,  TARGET_ABSOLUTE=False, SWAMP_AS_PERCENT=False),
