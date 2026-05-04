@@ -41,7 +41,7 @@ class Config:
     DI_IS_ABSOLUTE: bool = False # флаг для абсолютных значений di
 
     # Модель
-    INPUT_DIM: int = 33 # ← для 11-14 может быть больше из-за дополнительных temp-фич
+    INPUT_DIM: int = 31 # ← для 11-14 может быть больше из-за дополнительных temp-фич
     HIDDEN_DIMS: List[int] = field(default_factory=lambda: [32, 128, 64, 64, 32]) # можно менять для экспериментов
     DROPOUT_RATE: float = 0.2 # для всех слоёв, кроме последних 2, где может быть больше
     DROPOUT_RATE_LAST: float = 0.5 # для последних 2 слоёв (можно увеличить для регуляризации)
@@ -158,14 +158,23 @@ def cluster_soil_types(df: pd.DataFrame, soil_cols: List[str], min_cluster_size:
 # 4. Загрузка данных и предобработка
 # ─────────────────────────────────────────────────────────────────────────────
 
-def load_dm_movings(filepath: str, sheet_name: str, filter_func: str = None) -> pd.DataFrame:
+def load_dm_movings(filepath: str, sheet_name: str, filter_func: str = None, num_cols = 16) -> pd.DataFrame:
     """Загружает и преобразует данные о смещениях ДМ"""
     df_new = pd.read_excel(filepath, sheet_name=sheet_name)
-    df_new.columns = ['Объект',
-                      'Участок',
-                      'Номер ДМ', 
-                      'Имя ДМ', 
-                      'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII', 'XIII']
+    if num_cols < 16:
+        df_new.columns = ['Объект',
+                        'Участок',
+                        'Номер ДМ', 
+                        'Имя ДМ', 
+                        'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII']
+    else:
+        df_new.columns = ['Объект',
+                        'Участок',
+                        'Номер ДМ',
+                        'Имя ДМ',
+                        'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII','XIII']
+    
+    
     df_new = df_new.drop(0)
     
     base_cols = ["Объект", "Участок", "Номер ДМ", "Имя ДМ"]
@@ -822,9 +831,10 @@ def main(exp_id: int = 1):
     print("Загрузка данных...")
     dm_sheet = DM_SHEET[cfg.DATA_TYPE]
     if dm_sheet == "ДМ_перемещения последовательно":
-        dm_df = load_dm_movings("Все параметры_12 циклов_new_26.12.xlsx", "ДМ_перемещения последовательно")
+        dm_df = load_dm_movings("Все параметры_12 циклов_new_26.12.xlsx", "Перемещения", num_cols = 15)
     else:
         dm_df = load_dm_movings("new_data.xlsx", dm_sheet)
+
     ts_df = load_closest_ts("Все параметры_12 циклов_new_26.12.xlsx","Ближайшие ТС_new", cfg.MAX_DISTANCE)
     soil_df = load_soil_types("Все параметры_12 циклов_new_26.12.xlsx", "Колонки_new")
     temp_df = load_temperature("Все параметры_12 циклов_new_26.12.xlsx", "Температура_new")

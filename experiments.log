@@ -107,3 +107,375 @@ ValueError: Worksheet named 'ДМ_перемещения последовате�
 22:48:23 | ============================================================
 22:48:23 | НАЧАЛО эксперимента #5
 22:48:23 | ============================================================
+23:33:02 | ============================================================
+23:33:02 | НАЧАЛО эксперимента #1
+23:33:02 | ============================================================
+23:33:51 | ============================================================
+23:33:51 | НАЧАЛО эксперимента #4
+23:33:51 | ============================================================
+23:41:02 | ЗАВЕРШЁН эксперимент #4
+23:46:35 | ============================================================
+23:46:35 | НАЧАЛО эксперимента #5
+23:46:35 | ============================================================
+23:53:46 | ЗАВЕРШЁН эксперимент #5
+23:55:02 | ============================================================
+23:55:02 | НАЧАЛО эксперимента #1
+23:55:02 | ============================================================
+00:02:14 | ЗАВЕРШЁН эксперимент #1
+00:07:54 | ============================================================
+00:07:54 | НАЧАЛО эксперимента #2
+00:07:54 | ============================================================
+00:15:17 | ЗАВЕРШЁН эксперимент #2
+00:19:14 | ============================================================
+00:19:14 | НАЧАЛО эксперимента #3
+00:19:14 | ============================================================
+00:19:14 | ОШИБКА в эксперименте #3: Worksheet named 'ДМ_перемещения последовательно' not found
+Traceback (most recent call last):
+  File "C:\Users\faire\OneDrive\Desktop\Experimenti_svai\Experiment_1.py", line 913, in <module>
+    main(exp_id)
+  File "C:\Users\faire\OneDrive\Desktop\Experimenti_svai\Experiment_1.py", line 825, in main
+    dm_df = load_dm_movings("Все параметры_12 циклов_new_26.12.xlsx", "ДМ_перемещения последовательно")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\faire\OneDrive\Desktop\Experimenti_svai\Experiment_1.py", line 163, in load_dm_movings
+    df_new = pd.read_excel(filepath, sheet_name=sheet_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\faire\anaconda3\envs\svai\Lib\site-packages\pandas\io\excel\_base.py", line 508, in read_excel
+    data = io.parse(
+           ^^^^^^^^^
+  File "c:\Users\faire\anaconda3\envs\svai\Lib\site-packages\pandas\io\excel\_base.py", line 1616, in parse
+    return self._reader.parse(
+           ^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\faire\anaconda3\envs\svai\Lib\site-packages\pandas\io\excel\_base.py", line 773, in parse
+    sheet = self.get_sheet_by_name(asheetname)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\faire\anaconda3\envs\svai\Lib\site-packages\pandas\io\excel\_openpyxl.py", line 582, in get_sheet_by_name
+    self.raise_if_bad_sheet_by_name(name)
+  File "c:\Users\faire\anaconda3\envs\svai\Lib\site-packages\pandas\io\excel\_base.py", line 624, in raise_if_bad_sheet_by_name
+    raise ValueError(f"Worksheet named '{name}' not found")
+ValueError: Worksheet named 'ДМ_перемещения последовательно' not found
+00:19:14 | Продолжаем со следующим экспериментом...
+00:20:27 | ============================================================
+00:20:27 | НАЧАЛО эксперимента #3
+00:20:27 | ============================================================
+00:20:28 | ОШИБКА в эксперименте #3: Length mismatch: Expected axis has 15 elements, new values have 16 elements
+Traceback (most recent call last):
+  File "C:\Users\faire\OneDrive\Desktop\Experimenti_svai\Experiment_1.py", line 914, in <module>
+    main(exp_id)
+  File "C:\Users\faire\OneDrive\Desktop\Experimenti_svai\Experiment_1.py", line 825, in main
+    dm_df = load_dm_movings("Все параметры_12 циклов_new_26.12.xlsx", "Перемещения")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\faire\OneDrive\Desktop\Experimenti_svai\Experiment_1.py", line 164, in load_dm_movings
+    df_new.columns = ['Объект',
+    ^^^^^^^^^^^^^^
+  File "c:\Users\faire\anaconda3\envs\svai\Lib\site-packages\pandas\core\generic.py", line 6335, in __setattr__
+    return object.__setattr__(self, name, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/properties.pyx", line 69, in pandas._libs.properties.AxisProperty.__set__
+  File "c:\Users\faire\anaconda3\envs\svai\Lib\site-packages\pandas\core\generic.py", line 817, in _set_axis
+    self._mgr.set_axis(axis, labels)
+  File "c:\Users\faire\anaconda3\envs\svai\Lib\site-packages\pandas\core\internals\managers.py", line 238, in set_axis
+    self._validate_set_axis(axis, new_labels)
+  File "c:\Users\faire\anaconda3\envs\svai\Lib\site-packages\pandas\core\internals\base.py", line 98, in _validate_set_axis
+    raise ValueError(
+ValueError: Length mismatch: Expected axis has 15 elements, new values have 16 elements
+00:20:28 | Продолжаем со следующим экспериментом...
+00:23:20 | ============================================================
+00:23:20 | НАЧАЛО эксперимента #3
+00:23:20 | ============================================================
+00:29:54 | ЗАВЕРШЁН эксперимент #3
+00:30:13 | ============================================================
+00:30:13 | НАЧАЛО эксперимента #6
+00:30:13 | ============================================================
+00:36:32 | ЗАВЕРШЁН эксперимент #6
+00:37:07 | ============================================================
+00:37:07 | НАЧАЛО эксперимента #7
+00:37:07 | ============================================================
+00:37:17 | ОШИБКА в эксперименте #7: mat1 and mat2 shapes cannot be multiplied (256x31 and 33x32)
+Traceback (most recent call last):
+  File "C:\Users\faire\OneDrive\Desktop\Experimenti_svai\Experiment_1.py", line 923, in <module>
+    main(exp_id)
+  File "C:\Users\faire\OneDrive\Desktop\Experimenti_svai\Experiment_1.py", line 865, in main
+    train_summary = train_model(
+                    ^^^^^^^^^^^^
+  File "C:\Users\faire\OneDrive\Desktop\Experimenti_svai\Experiment_1.py", line 658, in train_model
+    loss = torch.sqrt(criterion(model(x), y))
+                                ^^^^^^^^
+  File "c:\Users\faire\anaconda3\envs\svai\Lib\site-packages\torch\nn\modules\module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\faire\anaconda3\envs\svai\Lib\site-packages\torch\nn\modules\module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\faire\OneDrive\Desktop\Experimenti_svai\Experiment_1.py", line 483, in forward
+    return self.net(x)
+           ^^^^^^^^^^^
+  File "c:\Users\faire\anaconda3\envs\svai\Lib\site-packages\torch\nn\modules\module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\faire\anaconda3\envs\svai\Lib\site-packages\torch\nn\modules\module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\faire\anaconda3\envs\svai\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "c:\Users\faire\anaconda3\envs\svai\Lib\site-packages\torch\nn\modules\module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\faire\anaconda3\envs\svai\Lib\site-packages\torch\nn\modules\module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\faire\anaconda3\envs\svai\Lib\site-packages\torch\nn\modules\linear.py", line 134, in forward
+    return F.linear(input, self.weight, self.bias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: mat1 and mat2 shapes cannot be multiplied (256x31 and 33x32)
+00:37:17 | Продолжаем со следующим экспериментом...
+00:41:06 | ============================================================
+00:41:06 | НАЧАЛО эксперимента #7
+00:41:06 | ============================================================
+00:47:35 | ЗАВЕРШЁН эксперимент #7
+00:51:41 | ============================================================
+00:51:41 | НАЧАЛО эксперимента #8
+00:51:41 | ============================================================
+00:51:53 | ОШИБКА в эксперименте #8: mat1 and mat2 shapes cannot be multiplied (256x33 and 31x32)
+Traceback (most recent call last):
+  File "C:\Users\faire\OneDrive\Desktop\Experimenti_svai\Experiment_1.py", line 923, in <module>
+    main(exp_id)
+  File "C:\Users\faire\OneDrive\Desktop\Experimenti_svai\Experiment_1.py", line 865, in main
+    train_summary = train_model(
+                    ^^^^^^^^^^^^
+  File "C:\Users\faire\OneDrive\Desktop\Experimenti_svai\Experiment_1.py", line 658, in train_model
+    loss = torch.sqrt(criterion(model(x), y))
+                                ^^^^^^^^
+  File "c:\Users\faire\anaconda3\envs\svai\Lib\site-packages\torch\nn\modules\module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\faire\anaconda3\envs\svai\Lib\site-packages\torch\nn\modules\module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\faire\OneDrive\Desktop\Experimenti_svai\Experiment_1.py", line 483, in forward
+    return self.net(x)
+           ^^^^^^^^^^^
+  File "c:\Users\faire\anaconda3\envs\svai\Lib\site-packages\torch\nn\modules\module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\faire\anaconda3\envs\svai\Lib\site-packages\torch\nn\modules\module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\faire\anaconda3\envs\svai\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "c:\Users\faire\anaconda3\envs\svai\Lib\site-packages\torch\nn\modules\module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\faire\anaconda3\envs\svai\Lib\site-packages\torch\nn\modules\module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\faire\anaconda3\envs\svai\Lib\site-packages\torch\nn\modules\linear.py", line 134, in forward
+    return F.linear(input, self.weight, self.bias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: mat1 and mat2 shapes cannot be multiplied (256x33 and 31x32)
+00:51:53 | Продолжаем со следующим экспериментом...
+00:56:36 | ============================================================
+00:56:36 | НАЧАЛО эксперимента #8
+00:56:36 | ============================================================
+01:02:45 | ЗАВЕРШЁН эксперимент #8
+01:03:45 | ============================================================
+01:03:45 | НАЧАЛО эксперимента #9
+01:03:45 | ============================================================
+01:03:46 | ОШИБКА в эксперименте #9: '<' not supported between instances of 'NoneType' and 'int'
+Traceback (most recent call last):
+  File "C:\Users\faire\OneDrive\Desktop\Experimenti_svai\Experiment_1.py", line 923, in <module>
+    main(exp_id)
+  File "C:\Users\faire\OneDrive\Desktop\Experimenti_svai\Experiment_1.py", line 836, in main
+    dm_df = load_dm_movings("new_data.xlsx", dm_sheet)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\faire\OneDrive\Desktop\Experimenti_svai\Experiment_1.py", line 164, in load_dm_movings
+    if num_cols < 16:
+       ^^^^^^^^^^^^^
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+01:03:46 | Продолжаем со следующим экспериментом...
+01:04:44 | ============================================================
+01:04:44 | НАЧАЛО эксперимента #1
+01:04:44 | ============================================================
+01:04:52 | ============================================================
+01:04:52 | НАЧАЛО эксперимента #9
+01:04:52 | ============================================================
+01:04:54 | ОШИБКА в эксперименте #9: Length mismatch: Expected axis has 16 elements, new values have 17 elements
+Traceback (most recent call last):
+  File "C:\Users\faire\OneDrive\Desktop\Experimenti_svai\Experiment_1.py", line 923, in <module>
+    main(exp_id)
+  File "C:\Users\faire\OneDrive\Desktop\Experimenti_svai\Experiment_1.py", line 836, in main
+    dm_df = load_dm_movings("new_data.xlsx", dm_sheet)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\faire\OneDrive\Desktop\Experimenti_svai\Experiment_1.py", line 171, in load_dm_movings
+    df_new.columns = ['Объект',
+    ^^^^^^^^^^^^^^
+  File "c:\Users\faire\anaconda3\envs\svai\Lib\site-packages\pandas\core\generic.py", line 6335, in __setattr__
+    return object.__setattr__(self, name, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/properties.pyx", line 69, in pandas._libs.properties.AxisProperty.__set__
+  File "c:\Users\faire\anaconda3\envs\svai\Lib\site-packages\pandas\core\generic.py", line 817, in _set_axis
+    self._mgr.set_axis(axis, labels)
+  File "c:\Users\faire\anaconda3\envs\svai\Lib\site-packages\pandas\core\internals\managers.py", line 238, in set_axis
+    self._validate_set_axis(axis, new_labels)
+  File "c:\Users\faire\anaconda3\envs\svai\Lib\site-packages\pandas\core\internals\base.py", line 98, in _validate_set_axis
+    raise ValueError(
+ValueError: Length mismatch: Expected axis has 16 elements, new values have 17 elements
+01:04:54 | Продолжаем со следующим экспериментом...
+01:05:37 | ============================================================
+01:05:37 | НАЧАЛО эксперимента #1
+01:05:37 | ============================================================
+01:05:39 | ОШИБКА в эксперименте #1: Length mismatch: Expected axis has 16 elements, new values have 17 elements
+Traceback (most recent call last):
+  File "c:\Users\faire\OneDrive\Desktop\Experimenti_svai\Experiment_1.py", line 923, in <module>
+    main(exp_id)
+  File "c:\Users\faire\OneDrive\Desktop\Experimenti_svai\Experiment_1.py", line 836, in main
+    dm_df = load_dm_movings("new_data.xlsx", dm_sheet)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\faire\OneDrive\Desktop\Experimenti_svai\Experiment_1.py", line 171, in load_dm_movings
+    df_new.columns = ['Объект',
+    ^^^^^^^^^^^^^^
+  File "C:\Users\faire\anaconda3\envs\svai\Lib\site-packages\pandas\core\generic.py", line 6335, in __setattr__
+    return object.__setattr__(self, name, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/properties.pyx", line 69, in pandas._libs.properties.AxisProperty.__set__
+  File "C:\Users\faire\anaconda3\envs\svai\Lib\site-packages\pandas\core\generic.py", line 817, in _set_axis
+    self._mgr.set_axis(axis, labels)
+  File "C:\Users\faire\anaconda3\envs\svai\Lib\site-packages\pandas\core\internals\managers.py", line 238, in set_axis
+    self._validate_set_axis(axis, new_labels)
+  File "C:\Users\faire\anaconda3\envs\svai\Lib\site-packages\pandas\core\internals\base.py", line 98, in _validate_set_axis
+    raise ValueError(
+ValueError: Length mismatch: Expected axis has 16 elements, new values have 17 elements
+01:05:39 | Продолжаем со следующим экспериментом...
+01:05:39 | ============================================================
+01:05:39 | НАЧАЛО эксперимента #2
+01:05:39 | ============================================================
+01:05:40 | ОШИБКА в эксперименте #2: Length mismatch: Expected axis has 16 elements, new values have 17 elements
+Traceback (most recent call last):
+  File "c:\Users\faire\OneDrive\Desktop\Experimenti_svai\Experiment_1.py", line 923, in <module>
+    main(exp_id)
+  File "c:\Users\faire\OneDrive\Desktop\Experimenti_svai\Experiment_1.py", line 836, in main
+    dm_df = load_dm_movings("new_data.xlsx", dm_sheet)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\faire\OneDrive\Desktop\Experimenti_svai\Experiment_1.py", line 171, in load_dm_movings
+    df_new.columns = ['Объект',
+    ^^^^^^^^^^^^^^
+  File "C:\Users\faire\anaconda3\envs\svai\Lib\site-packages\pandas\core\generic.py", line 6335, in __setattr__
+    return object.__setattr__(self, name, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/properties.pyx", line 69, in pandas._libs.properties.AxisProperty.__set__
+  File "C:\Users\faire\anaconda3\envs\svai\Lib\site-packages\pandas\core\generic.py", line 817, in _set_axis
+    self._mgr.set_axis(axis, labels)
+  File "C:\Users\faire\anaconda3\envs\svai\Lib\site-packages\pandas\core\internals\managers.py", line 238, in set_axis
+    self._validate_set_axis(axis, new_labels)
+  File "C:\Users\faire\anaconda3\envs\svai\Lib\site-packages\pandas\core\internals\base.py", line 98, in _validate_set_axis
+    raise ValueError(
+ValueError: Length mismatch: Expected axis has 16 elements, new values have 17 elements
+01:05:40 | Продолжаем со следующим экспериментом...
+01:05:40 | ============================================================
+01:05:40 | НАЧАЛО эксперимента #3
+01:05:40 | ============================================================
+01:05:42 | ============================================================
+01:05:42 | НАЧАЛО эксперимента #9
+01:05:42 | ============================================================
+01:05:43 | ОШИБКА в эксперименте #9: Length mismatch: Expected axis has 16 elements, new values have 17 elements
+Traceback (most recent call last):
+  File "C:\Users\faire\OneDrive\Desktop\Experimenti_svai\Experiment_1.py", line 923, in <module>
+    main(exp_id)
+  File "C:\Users\faire\OneDrive\Desktop\Experimenti_svai\Experiment_1.py", line 836, in main
+    dm_df = load_dm_movings("new_data.xlsx", dm_sheet)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\faire\OneDrive\Desktop\Experimenti_svai\Experiment_1.py", line 171, in load_dm_movings
+    df_new.columns = ['Объект',
+    ^^^^^^^^^^^^^^
+  File "c:\Users\faire\anaconda3\envs\svai\Lib\site-packages\pandas\core\generic.py", line 6335, in __setattr__
+    return object.__setattr__(self, name, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/properties.pyx", line 69, in pandas._libs.properties.AxisProperty.__set__
+  File "c:\Users\faire\anaconda3\envs\svai\Lib\site-packages\pandas\core\generic.py", line 817, in _set_axis
+    self._mgr.set_axis(axis, labels)
+  File "c:\Users\faire\anaconda3\envs\svai\Lib\site-packages\pandas\core\internals\managers.py", line 238, in set_axis
+    self._validate_set_axis(axis, new_labels)
+  File "c:\Users\faire\anaconda3\envs\svai\Lib\site-packages\pandas\core\internals\base.py", line 98, in _validate_set_axis
+    raise ValueError(
+ValueError: Length mismatch: Expected axis has 16 elements, new values have 17 elements
+01:05:43 | Продолжаем со следующим экспериментом...
+01:05:53 | ============================================================
+01:05:53 | НАЧАЛО эксперимента #9
+01:05:53 | ============================================================
+01:05:55 | ОШИБКА в эксперименте #9: Length mismatch: Expected axis has 16 elements, new values have 17 elements
+Traceback (most recent call last):
+  File "C:\Users\faire\OneDrive\Desktop\Experimenti_svai\Experiment_1.py", line 923, in <module>
+    main(exp_id)
+  File "C:\Users\faire\OneDrive\Desktop\Experimenti_svai\Experiment_1.py", line 836, in main
+    dm_df = load_dm_movings("new_data.xlsx", dm_sheet)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\faire\OneDrive\Desktop\Experimenti_svai\Experiment_1.py", line 171, in load_dm_movings
+    df_new.columns = ['Объект',
+    ^^^^^^^^^^^^^^
+  File "c:\Users\faire\anaconda3\envs\svai\Lib\site-packages\pandas\core\generic.py", line 6335, in __setattr__
+    return object.__setattr__(self, name, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/properties.pyx", line 69, in pandas._libs.properties.AxisProperty.__set__
+  File "c:\Users\faire\anaconda3\envs\svai\Lib\site-packages\pandas\core\generic.py", line 817, in _set_axis
+    self._mgr.set_axis(axis, labels)
+  File "c:\Users\faire\anaconda3\envs\svai\Lib\site-packages\pandas\core\internals\managers.py", line 238, in set_axis
+    self._validate_set_axis(axis, new_labels)
+  File "c:\Users\faire\anaconda3\envs\svai\Lib\site-packages\pandas\core\internals\base.py", line 98, in _validate_set_axis
+    raise ValueError(
+ValueError: Length mismatch: Expected axis has 16 elements, new values have 17 elements
+01:05:55 | Продолжаем со следующим экспериментом...
+01:07:03 | ============================================================
+01:07:03 | НАЧАЛО эксперимента #9
+01:07:03 | ============================================================
+01:07:04 | ОШИБКА в эксперименте #9: Length mismatch: Expected axis has 16 elements, new values have 17 elements
+Traceback (most recent call last):
+  File "C:\Users\faire\OneDrive\Desktop\Experimenti_svai\Experiment_1.py", line 923, in <module>
+    main(exp_id)
+  File "C:\Users\faire\OneDrive\Desktop\Experimenti_svai\Experiment_1.py", line 836, in main
+    dm_df = load_dm_movings("new_data.xlsx", dm_sheet)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\faire\OneDrive\Desktop\Experimenti_svai\Experiment_1.py", line 171, in load_dm_movings
+    df_new.columns = ['Объект',
+    ^^^^^^^^^^^^^^
+  File "c:\Users\faire\anaconda3\envs\svai\Lib\site-packages\pandas\core\generic.py", line 6335, in __setattr__
+    return object.__setattr__(self, name, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/properties.pyx", line 69, in pandas._libs.properties.AxisProperty.__set__
+  File "c:\Users\faire\anaconda3\envs\svai\Lib\site-packages\pandas\core\generic.py", line 817, in _set_axis
+    self._mgr.set_axis(axis, labels)
+  File "c:\Users\faire\anaconda3\envs\svai\Lib\site-packages\pandas\core\internals\managers.py", line 238, in set_axis
+    self._validate_set_axis(axis, new_labels)
+  File "c:\Users\faire\anaconda3\envs\svai\Lib\site-packages\pandas\core\internals\base.py", line 98, in _validate_set_axis
+    raise ValueError(
+ValueError: Length mismatch: Expected axis has 16 elements, new values have 17 elements
+01:07:04 | Продолжаем со следующим экспериментом...
+01:07:14 | ============================================================
+01:07:14 | НАЧАЛО эксперимента #9
+01:07:14 | ============================================================
+01:07:15 | ОШИБКА в эксперименте #9: Length mismatch: Expected axis has 16 elements, new values have 17 elements
+Traceback (most recent call last):
+  File "C:\Users\faire\OneDrive\Desktop\Experimenti_svai\Experiment_1.py", line 923, in <module>
+    main(exp_id)
+  File "C:\Users\faire\OneDrive\Desktop\Experimenti_svai\Experiment_1.py", line 836, in main
+    dm_df = load_dm_movings("new_data.xlsx", dm_sheet)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\faire\OneDrive\Desktop\Experimenti_svai\Experiment_1.py", line 171, in load_dm_movings
+    df_new.columns = ['Объект',
+    ^^^^^^^^^^^^^^
+  File "c:\Users\faire\anaconda3\envs\svai\Lib\site-packages\pandas\core\generic.py", line 6335, in __setattr__
+    return object.__setattr__(self, name, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/properties.pyx", line 69, in pandas._libs.properties.AxisProperty.__set__
+  File "c:\Users\faire\anaconda3\envs\svai\Lib\site-packages\pandas\core\generic.py", line 817, in _set_axis
+    self._mgr.set_axis(axis, labels)
+  File "c:\Users\faire\anaconda3\envs\svai\Lib\site-packages\pandas\core\internals\managers.py", line 238, in set_axis
+    self._validate_set_axis(axis, new_labels)
+  File "c:\Users\faire\anaconda3\envs\svai\Lib\site-packages\pandas\core\internals\base.py", line 98, in _validate_set_axis
+    raise ValueError(
+ValueError: Length mismatch: Expected axis has 16 elements, new values have 17 elements
+01:07:15 | Продолжаем со следующим экспериментом...
+01:07:57 | ============================================================
+01:07:57 | НАЧАЛО эксперимента #9
+01:07:57 | ============================================================
+01:14:27 | ЗАВЕРШЁН эксперимент #9
