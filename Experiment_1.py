@@ -17,9 +17,21 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import r2_score, mean_absolute_error
 
+import random
 import matplotlib.pyplot as plt
 import tqdm
 import joblib
+
+
+def seed_everything(seed: int = 42):
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
+    torch.backends.cudnn.deterministic = True
+    torch.backends.cudnn.benchmark = False
+    os.environ["PYTHONHASHSEED"] = str(seed)
+
 
 @dataclass
 class Config:
@@ -822,6 +834,8 @@ def main(exp_id: int = 1):
     if exp_id in EXPERIMENT_CONFIGS:
         for key, val in EXPERIMENT_CONFIGS[exp_id].items():
             object.__setattr__(cfg, key, val)
+
+    seed_everything(cfg.RANDOM_STATE)
 
     print(f"Using device: {cfg.DEVICE} | Experiment #{exp_id}")
     print(f"  DATA_TYPE={cfg.DATA_TYPE} | NORMALIZE_DI_LAGS={cfg.NORMALIZE_DI_LAGS} | "
